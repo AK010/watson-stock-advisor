@@ -512,7 +512,7 @@ angular.module('MainModule', []).controller('MainController',['$scope', 'StockSe
   }
 
   function getPieChartData(history){
-    var keys = ['Buy', 'Hold', 'Sell'];
+    var keys = ['Positive', 'Neutral', 'Negative'];
 
     var dataMap = {};
     for (var x=0; x<keys.length; x++) { dataMap[keys[x].toLowerCase()] = 0; }
@@ -627,10 +627,10 @@ angular.module('MainModule', []).controller('MainController',['$scope', 'StockSe
     for (var i=0; i<history.length; i++) {
       var sentiment = history[i].sentiment.toLowerCase();
       var sentimentInt = 0;
-      if (sentiment === 'buy'){
+      if (sentiment === 'positive'){
         sentimentInt = 1;
       }
-      else if (sentiment === 'sell'){
+      else if (sentiment === 'negative'){
         sentimentInt = -1;
       }
       
